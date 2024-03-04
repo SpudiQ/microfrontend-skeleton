@@ -1,0 +1,21 @@
+{
+  "name": "microfrontend-skeleton",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "pnpm start",
+    "build": "pnpm --parallel --filter \"./**\" build ",
+    "serve": "pnpm --parallel --filter \"./**\" serve ",
+    "restart": "pnpm stop & pnpm build & pnpm serve",
+    "build:remotes": "pnpm --parallel --filter \"./users-app\"  build",
+    "serve:remotes": "pnpm --parallel --filter \"./users-app\"  serve",
+    "dev:hosts": "pnpm --filter \"./host-app\" dev",
+    "stop": "kill-port --port 5100,5101",
+    "clean": "pnpm run clean",
+    "install": "cd host-app && npm install && cd .. && cd users-app && npm install"
+  },
+  "devDependencies": {
+    "kill-port": "^2.0.1",
+    "vite-plugin-css-injected-by-js": "^2.2.0"
+  },
+  "license": "MulanPSL2"
+}
